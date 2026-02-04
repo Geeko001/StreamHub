@@ -1,0 +1,19 @@
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+    readonly VITE_SPOTIFY_CLIENT_ID: string;
+    readonly VITE_SPOTIFY_REDIRECT_URI: string;
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv;
+}
+
+// File System Access API types
+interface FileSystemDirectoryHandle {
+    values(): AsyncIterableIterator<FileSystemHandle>;
+}
+
+interface Window {
+    showDirectoryPicker(options?: { mode?: 'read' | 'readwrite' }): Promise<FileSystemDirectoryHandle>;
+}

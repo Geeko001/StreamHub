@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hide scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Range Input Styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1db954;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  margin-top: -5px;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+input[type="range"]::-moz-range-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  height: 4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #1db954;
+  border: none;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+/* Glassmorphism utility */
+@layer utilities {
+  .glass {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-light {
+    background: rgba(36, 36, 36, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 50%, #1db954 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Safe area insets for mobile */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
